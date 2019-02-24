@@ -50,17 +50,17 @@
 	color: red;
 	font-size: 30px;
 }
-#my:checked + .inp {
+[name="name"]:checked + .inp {
 	background: green;
 }
-#my:checked + .inp .spn {
+[name="name"]:checked + .inp .spn {
 	margin-left: calc(100% - var(--radius-i));
 }
-#my:checked + .inp::after {
+[name="name"]:checked + .inp::after {
 	color: green;
 	content: "hello";
 }
-#my:checked + .inp .spn::after {
+[name="name"]:checked + .inp .spn::after {
 	-webkit-animation: chenge calc(var(--speed) * 2);
 	-moz-animation: chenge calc(var(--speed) * 2);
 	animation: chenge calc(var(--speed) * 2);
