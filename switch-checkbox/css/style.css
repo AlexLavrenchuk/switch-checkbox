@@ -1,0 +1,76 @@
+:root {
+	--width-input: 150px;
+	--radius-i: calc(var(--width-input) / 2.5);
+	--speed: .3s;
+}
+@keyframes chenge {
+	0% {
+	  height: 0px;
+	  width: 0px;
+	  opacity: 0.5;
+	}
+	100% {
+	  height: 300%;
+	  width: 300%;
+	  background: green;
+	  opacity: 0;
+	}
+}
+.center {
+	margin: 10% auto 0 auto;
+	max-width: var(--width-input);
+}
+.inp {
+	width: var(--width-input);
+	background: red;
+	display: block;
+	cursor: pointer;
+	padding: calc(var(--width-input) / 50);
+	box-sizing: border-box;
+	border-radius: calc(var(--width-input) / 2);
+	transition: var(--speed);
+	position: relative;
+}
+.inp .spn {
+	width: var(--radius-i);
+	height: var(--radius-i);
+	background: #fff;
+	display: block;
+	z-index: 10;
+	transition: var(--speed);
+	border-radius: 50%;
+	position: relative;
+}
+.inp::after {
+	content: "goodbye";
+	position: absolute;
+	top: 50%;
+	left: calc(var(--width-input) + 20px);
+	transform: translate(0%, -50%);
+	color: red;
+	font-size: 30px;
+}
+#my:checked + .inp {
+	background: green;
+}
+#my:checked + .inp .spn {
+	margin-left: calc(100% - var(--radius-i));
+}
+#my:checked + .inp::after {
+	color: green;
+	content: "hello";
+}
+#my:checked + .inp .spn::after {
+	-webkit-animation: chenge calc(var(--speed) * 2);
+	-moz-animation: chenge calc(var(--speed) * 2);
+	animation: chenge calc(var(--speed) * 2);
+	content: '';
+	background: white;
+	display: block;
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+}
